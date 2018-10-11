@@ -1,5 +1,3 @@
-
-
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'      
@@ -36,12 +34,16 @@ end
 
 
 def perform
+	
 	result = {}
-	get_all_the_urls_of_val_doise_townhalls.each do |townhall_name, townhall_url|
-		result[townhall_name] = get_the_email_of_a_townhall_from_its_webpage(townhall_url)
-	end
 
-	puts result
+		get_all_the_urls_of_val_doise_townhalls.each do |townhall_name, townhall_url|
+			result[townhall_name] = get_the_email_of_a_townhall_from_its_webpage(townhall_url)
+		end
+
+	result.each do |names, emails|
+		puts "La mairie de #{names} peut être contactée à l'adresse suivante : #{emails}"
+	end
 
 end
 

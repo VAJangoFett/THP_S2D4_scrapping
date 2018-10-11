@@ -42,11 +42,15 @@ def perform
 			names = get_crypto_name(link)
 			values = get_crypto_value(link)
 
-			puts result = Hash[names.zip(values)]
+			result = Hash[names.zip(values)]
+
+			result.each do |crypto, market_value|
+			puts "La crypto #{crypto} a une valeur de $#{market_value}"
+			end
+			
+			sleep(3600)
 
 		end
-
-	sleep(3600)
 
 end
 
